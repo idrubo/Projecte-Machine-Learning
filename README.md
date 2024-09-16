@@ -1,2 +1,2 @@
 # Projecte-Machine-Learning
-Exercise solving fot the ITAcademy Machine Learning training.
+Solución de los ejercicios para el bootcamp sobre machine learning.
