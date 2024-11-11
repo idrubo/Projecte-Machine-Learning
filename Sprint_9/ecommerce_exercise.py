@@ -3,10 +3,10 @@ import pickle
 import pandas as pd
 
 # Cargar el modelo y el escalador desde archivos
-with open('ecommerce_model.pkl', 'rb') as model_file:
+with open('Sprint_9/ecommerce_model.pkl', 'rb') as model_file:
     model = pickle.load(model_file)
 
-with open('ecommerce_scaler.pkl', 'rb') as scaler_file:
+with open('Sprint_9/ecommerce_scaler.pkl', 'rb') as scaler_file:
     scaler = pickle.load(scaler_file)
 
 # Título de la aplicación
