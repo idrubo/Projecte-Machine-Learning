@@ -11,6 +11,6 @@ with open('Sprint_9/bank_scaler.pkl', 'rb') as scaler_file:
     scaler = pickle.load (scaler_file)
 
 # Título de la aplicación
-st.title ('Predicción Sobre la Contratación de un Depósito a Plazo Fijo. (Regresión Logística)')
+st.title ('Predicción Sobre la Contratación de un Depósito a Plazo Fijo.')
 st.title ('(Regresión Logística)')
 
