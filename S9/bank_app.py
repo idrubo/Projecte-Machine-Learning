@@ -160,8 +160,8 @@ for c in cols:
 # Aplicamos "fit_transform" a los valores de entrada del usuario.
 user_data.loc [:,cols] = scaler.fit_transform (user_data.loc [:,cols])
 
-st.write (user_data.info ())
-st.write (user_data)
+st.write ('user_data.info (): ', user_data.info ())
+st.write ('user_data: ', user_data)
 
 # Estandarizar las entradas.
 # user_data_standardized = scaler.transform (user_data)
