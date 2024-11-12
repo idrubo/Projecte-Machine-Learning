@@ -164,7 +164,7 @@ st.write ('user_data.info (): ', user_data.info ())
 st.write ('user_data: ', user_data)
 
 # Realizar la predicción.
-prediction = model.predict (user_data_standardized)
+prediction = model.predict (user_data)
 
 # Mostrar la predicción.
 st.write(f'Predicción: ', pediction)
