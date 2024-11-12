@@ -167,5 +167,5 @@ st.write ('user_data: ', user_data)
 prediction = model.predict (user_data)
 
 # Mostrar la predicción.
-st.write(f'Predicción: ', pediction)
+st.write(f'Predicción: ', prediction)
 
