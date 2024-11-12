@@ -151,9 +151,6 @@ match education:
     case 'unknown':
         user_data ['education_unknown'] = True,
 
-st.write ('user_data.info (): ', user_data.info ())
-st.write ('user_data: ', user_data)
-
 cols = ['age', 'balance', 'campaign', 'pdays']
 
 # Para los valores de entrenamiento.
@@ -165,9 +162,6 @@ user_data.loc [:,cols] = scaler.fit_transform (user_data.loc [:,cols])
 
 st.write ('user_data.info (): ', user_data.info ())
 st.write ('user_data: ', user_data)
-
-# Estandarizar las entradas.
-# user_data_standardized = scaler.transform (user_data)
 
 # Realizar la predicción.
 # prediction = model.predict (user_data_standardized)
