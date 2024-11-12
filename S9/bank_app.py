@@ -43,7 +43,7 @@ age = st.number_input ('age', min_value = 0)
 st.write (f'age is ', age)
 
 #  1   balance              7813 non-null   float64
-balance = st.number_input ('balance', value = 0)
+balance = st.number_input ('balance', value = 0, step = 10)
 
 st.write (f'balance is ', balance)
 
