@@ -43,12 +43,12 @@ age = st.number_input ('age', min_value = 0)
 st.write (f'age is ', age)
 
 #  1   balance              7813 non-null   float64
-balance = st.number_input ('balance')
+balance = st.number_input ('balance', value = 0)
 
 st.write (f'balance is ', balance)
 
 #  2   campaign             7813 non-null   float64
-campaign = st.number_input ('campaign', min_value = -1)
+campaign = st.number_input ('campaign', min_value = 0)
 
 st.write (f'campaign is ', campaign)
 
