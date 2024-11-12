@@ -93,17 +93,24 @@ st.write (f'education is ', education)
 
 # Crear un DataFrame con las entradas
 user_data = pd.DataFrame({
-    'age'      : [age],
-    'balance'  : [balance],
-    'campaign' : [campaign],
-    'pdays'    : [pdays],
-    'contact'  : [contact],
-    'default'  : [default],
-    'housing'  : [housing],
-    'loan'     : [loan],
-    'poutcome' : [poutcome],
-    'job'      : [job],
-    'education': [education]
+    'age'                : [age],
+    'balance'            : [balance],
+    'campaign'           : [campaign],
+    'pdays'              : [pdays],
+    'contact'            : [contact],
+    'default'            : [default],
+    'housing'            : [housing],
+    'loan'               : [loan],
+    'poutcome'           : [poutcome],
+    'job_non-qualified'  : [False],
+    'job_qualified'      : [False],
+    'job_semi-qualified' : [False],
+    'job_freelance'      : [False],
+    'job_other'          : [False],
+    'education_primary'  : [False],
+    'education_secondary': [False],
+    'education_tertiary' : [False],
+    'education_unknown'  : [False]
 })
 
 # Codificación de variables categóricas.
@@ -115,7 +122,34 @@ for c in cols:
     user_data [c] = encoder.fit_transform (user_data [c])
 
 # Columnas categóricas.
-user_data = pd.get_dummies (user_data, columns = ['job', 'education'])
+match job:
+    case 'non-qualified':
+        user_data ['job_non-qualified'] = True,
+
+    case 'qualified':
+        user_data ['job_qualified'] = True,
+
+    case 'semi-qualified':
+        user_data ['job_semi-qualified'] = True,
+
+    case 'freelance':
+        user_data ['job_freelance'] = True,
+
+    case 'other':
+        user_data ['job_other'] = True,
+
+match education:
+    case 'primary':
+        user_data ['education_primary'] = True,
+
+    case 'secondary':
+        user_data ['education_secondary'] = True,
+
+    case 'tertiary':
+        user_data ['education_tertiary'] = True,
+
+    case 'unknown':
+        user_data ['education_unknown'] = True,
 
 st.write (user_data.info ())
 st.write (user_data)
