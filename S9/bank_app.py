@@ -72,13 +72,13 @@ match job:
 #  17  education_unknown    7813 non-null   bool
 education = st.selectbox ("Education: ", ['primary', 'secondary', 'tertiary', 'unknown'])
 
-match job:
+match education:
     case 'primary':
-        st.write ("Job is non-qualified.")
+        st.write ("Education is primary.")
     case 'secondary':
-        st.write ("Job is qualified.")
+        st.write ("Education is secondary.")
     case 'tertiary':
-        st.write ("Job is semi-qualified.")
+        st.write ("Education is tertiary.")
     case 'unknown':
-        st.write ("Job is freelance.")
+        st.write ("Education is unknown.")
 
