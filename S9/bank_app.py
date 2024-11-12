@@ -154,3 +154,12 @@ match education:
 st.write (user_data.info ())
 st.write (user_data)
 
+# Estandarizar las entradas.
+user_data_standardized = scaler.transform (user_data)
+
+# Realizar la predicción.
+prediction = model.predict (user_data_standardized)
+
+# Mostrar la predicción.
+st.write(f'Predicción: {prediction[0]}')
+
