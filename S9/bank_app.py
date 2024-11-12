@@ -12,5 +12,5 @@ with open('S9/bank_scaler.pkl', 'rb') as scaler_file:
 
 # Título de la aplicación
 st.title ('Predicción Sobre la Contratación de un Depósito a Plazo Fijo.')
-st.title ('(Regresión Logística)')
+st.header ('(Regresión Logística)')
 
