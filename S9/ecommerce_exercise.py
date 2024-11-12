@@ -3,10 +3,10 @@ import pickle
 import pandas as pd
 
 # Cargar el modelo y el escalador desde archivos
-with open('linear_model.pkl', 'rb') as model_file:
+with open('S9/linear_model.pkl', 'rb') as model_file:
     model = pickle.load(model_file)
 
-with open('scaler.pkl', 'rb') as scaler_file:
+with open('S9/scaler.pkl', 'rb') as scaler_file:
     scaler = pickle.load(scaler_file)
 
 # Título de la aplicación
@@ -23,6 +23,9 @@ user_data = pd.DataFrame({
     'Time on App': [time_on_app],
     'Avg. Session Length': [avg_session_length]
 })
+
+st.write ('user_data.info (): ', user_data.info ())
+st.write ('user_data: ', user_data)
 
 # Estandarizar las entradas
 user_data_standardized = scaler.transform(user_data)
