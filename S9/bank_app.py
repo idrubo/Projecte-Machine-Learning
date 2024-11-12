@@ -106,5 +106,17 @@ user_data = pd.DataFrame({
     'education': [education]
 })
 
+# Codificación de variables categóricas.
+
+# Columnas binarias.
+cols = ['contact', 'poutcome', 'housing', 'loan', 'default']
+
+for c in cols:
+    user_data [c] = encoder.fit_transform (user_data [c])
+
+# Columnas categóricas.
+user_data = pd.get_dummies (user_data, columns = ['job', 'education'])
+
+st.write (user_data.info ())
 st.write (user_data)
 
