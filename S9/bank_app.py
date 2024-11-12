@@ -151,15 +151,24 @@ match education:
     case 'unknown':
         user_data ['education_unknown'] = True,
 
+cols = ['age', 'balance', 'campaign', 'pdays']
+
+# Para los valores de entrenamiento.
+for c in cols:
+    user_data [c] = user_data [c].astype ('float64')
+
+# Aplicamos "fit_transform" a los valores de entrada del usuario.
+user_data.loc [:,cols] = scaler.fit_transform (user_data.loc [:,cols])
+
 st.write (user_data.info ())
 st.write (user_data)
 
 # Estandarizar las entradas.
-user_data_standardized = scaler.transform (user_data)
+# user_data_standardized = scaler.transform (user_data)
 
 # Realizar la predicción.
-prediction = model.predict (user_data_standardized)
+# prediction = model.predict (user_data_standardized)
 
 # Mostrar la predicción.
-st.write(f'Predicción: {prediction[0]}')
+# st.write(f'Predicción: ', pediction)
 
