@@ -3,6 +3,8 @@ import streamlit as st
 import pickle
 import pandas as pd
 
+job = education = None
+
 # Cargar el modelo y el escalador desde archivos
 with open('S9/bank_model.pkl', 'rb') as model_file:
     model = pickle.load (model_file)
@@ -70,5 +72,13 @@ match job:
 #  17  education_unknown    7813 non-null   bool
 education = st.selectbox ("Education: ", ['primary', 'secondary', 'tertiary', 'unknown'])
 
-st.write ("Education: ", education)
+match job:
+    case 'primary':
+        st.write ("Job is non-qualified.")
+    case 'secondary':
+        st.write ("Job is qualified.")
+    case 'tertiary':
+        st.write ("Job is semi-qualified.")
+    case 'unknown':
+        st.write ("Job is freelance.")
 
