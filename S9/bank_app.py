@@ -52,9 +52,7 @@ st.header ('(Regresión Logística)')
 #  13  job_other            7813 non-null   bool
 job = st.selectbox ("Job type: ", ['non-qualified', 'qualified', 'semi-qualified', 'freelance', 'other'])
 
-st.write ("Job: ", job)
-
-match student:
+match job:
     case 'non-qualified':
         st.write ("Job is non-qualified.")
     case 'qualified':
