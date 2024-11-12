@@ -151,6 +151,9 @@ match education:
     case 'unknown':
         user_data ['education_unknown'] = True,
 
+st.write ('user_data.info (): ', user_data.info ())
+st.write ('user_data: ', user_data)
+
 cols = ['age', 'balance', 'campaign', 'pdays']
 
 # Para los valores de entrenamiento.
