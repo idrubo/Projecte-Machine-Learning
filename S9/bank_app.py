@@ -82,26 +82,28 @@ user_data = pd.DataFrame({
 # Codificación de variables categóricas.
 
 # Columnas binarias.
-cols = ['contact', 'poutcome', 'housing', 'loan', 'default']
 
 st.write ('user_data.info (): ', user_data.info ())
 st.write ('user_data: ', user_data)
 
 # Tomamos las classes según el encoder de la etapa de prepación de datos.
+
 contact_cl =  ['cellular', 'telephone', 'unknown']
 user_data ['contact'] = contact_cl.index (contact)
 
-# c:  poutcome
-# le.classes_:  ['failure' 'other' 'success' 'unknown']
+poutcome_cl = ['failure', 'other', 'success', 'unknown']
+user_data ['poutcome'] = poutcome_cl.index (poutcome)
 
-# c:  housing
-# le.classes_:  ['no' 'yes']
+housing_cl = ['no', 'yes']
+user_data ['housing'] = housing_cl.index (housing)
 
-# c:  loan
-# le.classes_:  ['no' 'yes']
+loan_cl = ['no', 'yes']
+user_data ['loan'] = loan_cl.index (loan)
 
-# c:  default
-# le.classes_:  ['no' 'yes']
+default_cl = ['no', 'yes']
+user_data ['default'] = default_cl.index (default)
+
+# cols = ['contact', 'poutcome', 'housing', 'loan', 'default']
 
 # for c in cols:
 #     user_data [c] = encoder.fit_transform (user_data [c])
