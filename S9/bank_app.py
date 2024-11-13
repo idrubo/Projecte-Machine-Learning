@@ -3,7 +3,7 @@ import streamlit as st
 import pickle
 import pandas as pd
 
-job = education = None
+# job = education = None
 
 # Cargar el modelo y el escalador desde archivos
 with open('S9/bank_model.pkl', 'rb') as model_file:
