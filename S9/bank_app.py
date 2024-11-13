@@ -96,32 +96,32 @@ st.write ('user_data: ', user_data)
 # Columnas categóricas.
 match job:
     case 'non-qualified':
-        user_data.loc [0:, 'job_non-qualified'] = True
+        user_data.loc ['job_non-qualified'] = True
 
     case 'qualified':
-        user_data.loc [0:, 'job_qualified'] = True
+        user_data.loc ['job_qualified'] = True
 
     case 'semi-qualified':
-        user_data.loc [0:, 'job_semi-qualified'] = True
+        user_data.loc ['job_semi-qualified'] = True
 
     case 'freelance':
-        user_data.loc [0:, 'job_freelance'] = True
+        user_data.loc ['job_freelance'] = True
 
     case 'other':
-        user_data.loc [0:, 'job_other'] = True
+        user_data.loc ['job_other'] = True
 
 match education:
     case 'primary':
-        user_data.loc [0:, 'education_primary'] = True
+        user_data.loc ['education_primary'] = True
 
     case 'secondary':
-        user_data.loc [0:, 'education_secondary'] = True
+        user_data.loc ['education_secondary'] = True
 
     case 'tertiary':
-        user_data.loc [0:, 'education_tertiary'] = True
+        user_data.loc ['education_tertiary'] = True
 
     case 'unknown':
-        user_data.loc [0:, 'education_unknown'] = True
+        user_data.loc ['education_unknown'] = True
 
 cols = ['age', 'balance', 'campaign', 'pdays']
 
