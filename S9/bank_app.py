@@ -147,6 +147,6 @@ probabilidad = model.predict_proba (user_data)
 prediction = model.predict (user_data)
 
 # Mostrar la predicción.
-st.write(f'Probabilidad: ', probabilidad)
+st.write(f'Probabilidad: ', probabilidad [1])
 st.write(f'Predicción: ', prediction)
 
