@@ -89,7 +89,7 @@ st.write ('user_data: ', user_data)
 
 # Tomamos las classes según el encoder de la etapa de prepación de datos.
 contact_cl =  ['cellular' 'telephone' 'unknown']
-user_data ['contact'] = contact_cl.index(contact))
+user_data ['contact'] = contact_cl.index (contact)
 
 # c:  poutcome
 # le.classes_:  ['failure' 'other' 'success' 'unknown']
