@@ -3,7 +3,7 @@ import streamlit as st
 import pickle
 import pandas as pd
 
-from sklearn.preprocessing import LabelEncoder
+# from sklearn.preprocessing import LabelEncoder
 
 # Cargar el modelo y el escalador desde archivos
 with open('S9/bank_model.pkl', 'rb') as model_file:
@@ -89,9 +89,9 @@ cols = ['contact', 'poutcome', 'housing', 'loan', 'default']
 st.write ('user_data.info (): ', user_data.info ())
 st.write ('user_data: ', user_data)
 
-le = LabelEncoder ()
+# le = LabelEncoder ()
 for c in cols:
-    user_data [c] = le.fit_transform (user_data [c])
+    user_data [c] = encoder.fit_transform (user_data [c])
 
 st.write ('user_data.info (): ', user_data.info ())
 st.write ('user_data: ', user_data)
