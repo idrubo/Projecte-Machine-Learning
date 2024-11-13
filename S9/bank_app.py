@@ -3,8 +3,6 @@ import streamlit as st
 import pickle
 import pandas as pd
 
-# from sklearn.preprocessing import LabelEncoder
-
 # Cargar el modelo y el escalador desde archivos
 with open('S9/bank_model.pkl', 'rb') as model_file:
     model = pickle.load (model_file)
@@ -12,8 +10,8 @@ with open('S9/bank_model.pkl', 'rb') as model_file:
 with open('S9/bank_scaler.pkl', 'rb') as scaler_file:
     scaler = pickle.load (scaler_file)
 
-with open('S9/bank_encoder.pkl', 'rb') as encoder_file:
-    encoder = pickle.load (encoder_file)
+# with open('S9/bank_encoder.pkl', 'rb') as encoder_file:
+#     encoder = pickle.load (encoder_file)
 
 # Título de la aplicación
 st.title ('Predicción Sobre la Contratación de un Depósito a Plazo Fijo.')
@@ -89,9 +87,24 @@ cols = ['contact', 'poutcome', 'housing', 'loan', 'default']
 st.write ('user_data.info (): ', user_data.info ())
 st.write ('user_data: ', user_data)
 
-# le = LabelEncoder ()
-for c in cols:
-    user_data [c] = encoder.fit_transform (user_data [c])
+# Tomamos las classes según el encoder de la etapa de prepación de datos.
+contact_cl =  ['cellular' 'telephone' 'unknown']
+user_data ['contact'] = contact_cl.index(contact))
+
+# c:  poutcome
+# le.classes_:  ['failure' 'other' 'success' 'unknown']
+
+# c:  housing
+# le.classes_:  ['no' 'yes']
+
+# c:  loan
+# le.classes_:  ['no' 'yes']
+
+# c:  default
+# le.classes_:  ['no' 'yes']
+
+# for c in cols:
+#     user_data [c] = encoder.fit_transform (user_data [c])
 
 st.write ('user_data.info (): ', user_data.info ())
 st.write ('user_data: ', user_data)
@@ -99,32 +112,32 @@ st.write ('user_data: ', user_data)
 # Columnas categóricas.
 match job:
     case 'non-qualified':
-        user_data.loc ['job_non-qualified'] = True
+        user_data ['job_non-qualified'] = True
 
     case 'qualified':
-        user_data.loc ['job_qualified'] = True
+        user_data ['job_qualified'] = True
 
     case 'semi-qualified':
-        user_data.loc ['job_semi-qualified'] = True
+        user_data ['job_semi-qualified'] = True
 
     case 'freelance':
-        user_data.loc ['job_freelance'] = True
+        user_data ['job_freelance'] = True
 
     case 'other':
-        user_data.loc ['job_other'] = True
+        user_data ['job_other'] = True
 
 match education:
     case 'primary':
-        user_data.loc ['education_primary'] = True
+        user_data ['education_primary'] = True
 
     case 'secondary':
-        user_data.loc ['education_secondary'] = True
+        user_data ['education_secondary'] = True
 
     case 'tertiary':
-        user_data.loc ['education_tertiary'] = True
+        user_data ['education_tertiary'] = True
 
     case 'unknown':
-        user_data.loc ['education_unknown'] = True
+        user_data ['education_unknown'] = True
 
 cols = ['age', 'balance', 'campaign', 'pdays']
 
