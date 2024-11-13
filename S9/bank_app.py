@@ -127,26 +127,25 @@ match education:
     case 'unknown':
         user_data ['education_unknown'] = True
 
+# Imprimimos una tabla con los datos.
+st.write ('Datos Entrados: ', user_data)
+
+# Standarizamos con el escaler importado mediante 'pickle'.'
+
 cols = ['age', 'balance', 'campaign', 'pdays']
 
 # Convertimos los valores numéricos a 'float64'.
 for c in cols:
     user_data [c] = user_data [c].astype ('float64')
 
-st.write ('user_data.info (): ', user_data.info ())
-st.write ('user_data: ', user_data)
-
-# Aplicamos "fit_transform" a los valores de entrada del usuario.
+# Aplicamos "transform" a los valores de entrada del usuario.
 user_data.loc [:,cols] = scaler.transform (user_data.loc [:,cols])
 
-st.write ('user_data.info (): ', user_data.info ())
-st.write ('user_data: ', user_data)
-
 # Realizar la predicción con su probabilidad.
-probabilidad = model.predict_proba (user_data)
+prob = model.predict_proba (user_data)
 prediction = model.predict (user_data)
 
 # Mostrar la predicción y su probabilidad.
-st.write(f'Probabilidad: ', probabilidad [:, 1])
-st.write(f'Predicción: ', prediction)
+st.write (f'Probabilidad: ', prob [0, 1])
+st.write (f'Predicción: ', prediction [0])
 
