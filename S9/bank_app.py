@@ -10,9 +10,6 @@ with open('S9/bank_model.pkl', 'rb') as model_file:
 with open('S9/bank_scaler.pkl', 'rb') as scaler_file:
     scaler = pickle.load (scaler_file)
 
-# with open('S9/bank_encoder.pkl', 'rb') as encoder_file:
-#     encoder = pickle.load (encoder_file)
-
 # Título de la aplicación
 st.title ('Predicción Sobre la Contratación de un Depósito a Plazo Fijo.')
 st.header ('(Regresión Logística)')
@@ -83,9 +80,6 @@ user_data = pd.DataFrame({
 
 # Columnas binarias.
 
-st.write ('user_data.info (): ', user_data.info ())
-st.write ('user_data: ', user_data)
-
 # Tomamos las classes según el encoder de la etapa de prepación de datos.
 
 contact_cl =  ['cellular', 'telephone', 'unknown']
@@ -102,11 +96,6 @@ user_data ['loan'] = loan_cl.index (loan)
 
 default_cl = ['no', 'yes']
 user_data ['default'] = default_cl.index (default)
-
-# cols = ['contact', 'poutcome', 'housing', 'loan', 'default']
-
-# for c in cols:
-#     user_data [c] = encoder.fit_transform (user_data [c])
 
 st.write ('user_data.info (): ', user_data.info ())
 st.write ('user_data: ', user_data)
@@ -147,11 +136,14 @@ cols = ['age', 'balance', 'campaign', 'pdays']
 for c in cols:
     user_data [c] = user_data [c].astype ('float64')
 
+st.write ('user_data.info (): ', user_data.info ())
+st.write ('user_data: ', user_data)
+
 # Aplicamos "fit_transform" a los valores de entrada del usuario.
 user_data.loc [:,cols] = scaler.fit_transform (user_data.loc [:,cols])
 
-# st.write ('user_data.info (): ', user_data.info ())
-# st.write ('user_data: ', user_data)
+st.write ('user_data.info (): ', user_data.info ())
+st.write ('user_data: ', user_data)
 
 # Realizar la predicción con su probabilidad.
 probabilidad = model.predict_proba (user_data)
