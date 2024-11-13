@@ -85,7 +85,7 @@ user_data = pd.DataFrame({
 cols = ['contact', 'poutcome', 'housing', 'loan', 'default']
 
 for c in cols:
-    user_data [c] = encoder.fit_transform (user_data [c])
+    user_data [c] = encoder.transform (user_data [c])
 
 st.write ('user_data.info (): ', user_data.info ())
 st.write ('user_data: ', user_data)
