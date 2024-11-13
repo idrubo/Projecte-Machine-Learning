@@ -142,9 +142,11 @@ user_data.loc [:,cols] = scaler.fit_transform (user_data.loc [:,cols])
 st.write ('user_data.info (): ', user_data.info ())
 st.write ('user_data: ', user_data)
 
-# Realizar la predicción.
+# Realizar la predicción con su probabilidad.
+probabilidad = model.predict_proba (user_data)
 prediction = model.predict (user_data)
 
 # Mostrar la predicción.
+st.write(f'Probabilidad: ', probabilidad)
 st.write(f'Predicción: ', prediction)
 
