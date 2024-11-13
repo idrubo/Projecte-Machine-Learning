@@ -84,8 +84,11 @@ user_data = pd.DataFrame({
 # Columnas binarias.
 cols = ['contact', 'poutcome', 'housing', 'loan', 'default']
 
+st.write ('user_data.info (): ', user_data.info ())
+st.write ('user_data: ', user_data)
+
 for c in cols:
-    user_data [c] = encoder.transform (user_data [c])
+    user_data [c] = encoder.fit_transform (user_data [c])
 
 st.write ('user_data.info (): ', user_data.info ())
 st.write ('user_data: ', user_data)
@@ -129,8 +132,8 @@ for c in cols:
 # Aplicamos "fit_transform" a los valores de entrada del usuario.
 user_data.loc [:,cols] = scaler.fit_transform (user_data.loc [:,cols])
 
-st.write ('user_data.info (): ', user_data.info ())
-st.write ('user_data: ', user_data)
+# st.write ('user_data.info (): ', user_data.info ())
+# st.write ('user_data: ', user_data)
 
 # Realizar la predicción con su probabilidad.
 probabilidad = model.predict_proba (user_data)
