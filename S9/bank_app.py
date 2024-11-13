@@ -3,8 +3,6 @@ import streamlit as st
 import pickle
 import pandas as pd
 
-# job = education = None
-
 # Cargar el modelo y el escalador desde archivos
 with open('S9/bank_model.pkl', 'rb') as model_file:
     model = pickle.load (model_file)
@@ -89,6 +87,9 @@ cols = ['contact', 'poutcome', 'housing', 'loan', 'default']
 for c in cols:
     user_data [c] = encoder.fit_transform (user_data [c])
 
+st.write ('user_data.info (): ', user_data.info ())
+st.write ('user_data: ', user_data)
+
 # Columnas categóricas.
 match job:
     case 'non-qualified':
@@ -121,15 +122,15 @@ match education:
 
 cols = ['age', 'balance', 'campaign', 'pdays']
 
-# Para los valores de entrenamiento.
+# Convertimos los valores numéricos a 'float64'.
 for c in cols:
     user_data [c] = user_data [c].astype ('float64')
 
 # Aplicamos "fit_transform" a los valores de entrada del usuario.
 user_data.loc [:,cols] = scaler.fit_transform (user_data.loc [:,cols])
 
-# st.write ('user_data.info (): ', user_data.info ())
-# st.write ('user_data: ', user_data)
+st.write ('user_data.info (): ', user_data.info ())
+st.write ('user_data: ', user_data)
 
 # Realizar la predicción con su probabilidad.
 probabilidad = model.predict_proba (user_data)
