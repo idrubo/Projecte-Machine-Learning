@@ -97,9 +97,6 @@ user_data ['loan'] = loan_cl.index (loan)
 default_cl = ['no', 'yes']
 user_data ['default'] = default_cl.index (default)
 
-st.write ('user_data.info (): ', user_data.info ())
-st.write ('user_data: ', user_data)
-
 # Columnas categóricas.
 match job:
     case 'non-qualified':
@@ -140,7 +137,7 @@ st.write ('user_data.info (): ', user_data.info ())
 st.write ('user_data: ', user_data)
 
 # Aplicamos "fit_transform" a los valores de entrada del usuario.
-user_data.loc [:,cols] = scaler.fit_transform (user_data.loc [:,cols])
+user_data.loc [:,cols] = scaler.transform (user_data.loc [:,cols])
 
 st.write ('user_data.info (): ', user_data.info ())
 st.write ('user_data: ', user_data)
