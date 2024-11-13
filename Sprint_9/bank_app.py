@@ -143,9 +143,11 @@ user_data.loc [:,cols] = scaler.transform (user_data.loc [:,cols])
 
 # Realizar la predicción con su probabilidad.
 prob = model.predict_proba (user_data)
-prediction = model.predict (user_data)
 
 # Mostrar la predicción y su probabilidad.
 st.write (f'Probabilidad: %5.3f' % (prob [0, 1]))
-st.write (f'Predicción: ', prediction [0])
+if prob >= 0.4: 
+    st.write (f'Predicción: yes')
+else:
+    st.write (f'Predicción: no')
 
