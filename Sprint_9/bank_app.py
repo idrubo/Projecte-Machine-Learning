@@ -146,7 +146,7 @@ prob = model.predict_proba (user_data)
 
 # Mostrar la predicción y su probabilidad.
 st.write (f'Probabilidad: %5.3f' % (prob [0, 1]))
-if prob >= 0.4: 
+if prob [0, 1] >= 0.4: 
     st.write (f'Predicción: yes')
 else:
     st.write (f'Predicción: no')
