@@ -14,6 +14,9 @@ with open('Sprint_9/bank_scaler.pkl', 'rb') as scaler_file:
 st.title ('Predicción Sobre la Contratación de un Depósito a Plazo Fijo.')
 st.header ('(Regresión Logística)')
 
+# Introducción de valores.
+
+# Entradas para valores numéricos.
 #  0   age
 age = st.number_input ('age', min_value = 0)
 
@@ -26,6 +29,7 @@ campaign = st.number_input ('campaign', min_value = 0)
 #  3   pdays
 pdays = st.number_input ('pdays (días)', min_value = -1)
 
+# Entradas para valores categóricos.
 #  4   contact
 contact = st.selectbox ("contact: ", ['cellular', 'telephone', 'unknown'])
 
@@ -39,7 +43,7 @@ housing = st.selectbox ("housing: ", ['no', 'yes'])
 loan = st.selectbox ("loan: ", ['no', 'yes'])
 
 #  8   poutcome
-poutcome = st.selectbox ("poutcome: ", ['N_A', 'failure', 'other', 'success'])
+poutcome = st.selectbox ("poutcome: ", ['N_A' 'failure' 'other' 'success']
 
 #  9   job_non-qualified
 #  10  job_qualified
@@ -85,7 +89,7 @@ user_data = pd.DataFrame({
 contact_cl =  ['cellular', 'telephone', 'unknown']
 user_data ['contact'] = contact_cl.index (contact)
 
-poutcome_cl = ['N_A', 'failure', 'other', 'success']
+poutcome_cl = ['failure', 'other', 'success', 'unknown']
 user_data ['poutcome'] = poutcome_cl.index (poutcome)
 
 housing_cl = ['no', 'yes']
@@ -143,9 +147,12 @@ user_data.loc [:,cols] = scaler.transform (user_data.loc [:,cols])
 
 # Realizar la predicción con su probabilidad.
 prob = model.predict_proba (user_data)
-prediction = model.predict (user_data)
 
 # Mostrar la predicción y su probabilidad.
 st.write (f'Probabilidad: %5.3f' % (prob [0, 1]))
-st.write (f'Predicción: ', prediction [0])
+
+if prob >= 0.4:
+    print (f'Predicción: yes')
+else:
+    print (f'Predicción: no')
 
