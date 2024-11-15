@@ -152,7 +152,7 @@ prob = model.predict_proba (user_data)
 st.write (f'Probabilidad: %5.3f' % (prob [0, 1]))
 
 if prob  [0, 1] >= 0.4:
-    print (f'Predicción: yes')
+    st.write (f'Predicción: yes')
 else:
-    print (f'Predicción: no')
+    st.write (f'Predicción: no')
 
