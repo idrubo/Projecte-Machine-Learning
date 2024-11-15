@@ -39,7 +39,7 @@ housing = st.selectbox ("housing: ", ['no', 'yes'])
 loan = st.selectbox ("loan: ", ['no', 'yes'])
 
 #  8   poutcome
-poutcome = st.selectbox ("poutcome: ", ['N_A' 'failure' 'other' 'success']
+poutcome = st.selectbox ("poutcome: ", ['N_A' 'failure' 'other' 'success'])
 
 #  9   job_non-qualified
 #  10  job_qualified
