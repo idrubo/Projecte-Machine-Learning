@@ -43,7 +43,7 @@ housing = st.selectbox ("housing: ", ['no', 'yes'])
 loan = st.selectbox ("loan: ", ['no', 'yes'])
 
 #  8   poutcome
-poutcome = st.selectbox ("poutcome: ", ['N_A' 'failure' 'other' 'success']
+poutcome = st.selectbox ("poutcome: ", ['N_A', 'failure', 'other', 'success'])
 
 #  9   job_non-qualified
 #  10  job_qualified
@@ -89,7 +89,7 @@ user_data = pd.DataFrame({
 contact_cl =  ['cellular', 'telephone', 'unknown']
 user_data ['contact'] = contact_cl.index (contact)
 
-poutcome_cl = ['failure', 'other', 'success', 'unknown']
+poutcome_cl = ['N_A', 'failure', 'other', 'success']
 user_data ['poutcome'] = poutcome_cl.index (poutcome)
 
 housing_cl = ['no', 'yes']
