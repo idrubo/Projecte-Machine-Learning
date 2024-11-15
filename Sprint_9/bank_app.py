@@ -85,7 +85,7 @@ user_data = pd.DataFrame({
 contact_cl =  ['cellular', 'telephone', 'unknown']
 user_data ['contact'] = contact_cl.index (contact)
 
-poutcome_cl = ['failure', 'other', 'success', 'unknown']
+poutcome_cl = ['N_A', 'failure', 'other', 'success']
 user_data ['poutcome'] = poutcome_cl.index (poutcome)
 
 housing_cl = ['no', 'yes']
