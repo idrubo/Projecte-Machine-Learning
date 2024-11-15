@@ -4,10 +4,10 @@ import pickle
 import pandas as pd
 
 # Cargar el modelo y el escalador desde archivos
-with open('Sprint_9/bank_model.pkl', 'rb') as model_file:
+with open('S9/bank_model.pkl', 'rb') as model_file:
     model = pickle.load (model_file)
 
-with open('Sprint_9/bank_scaler.pkl', 'rb') as scaler_file:
+with open('S9/bank_scaler.pkl', 'rb') as scaler_file:
     scaler = pickle.load (scaler_file)
 
 # Título de la aplicación
@@ -39,7 +39,7 @@ housing = st.selectbox ("housing: ", ['no', 'yes'])
 loan = st.selectbox ("loan: ", ['no', 'yes'])
 
 #  8   poutcome
-poutcome = st.selectbox ("poutcome: ", ['failure', 'other', 'success', 'unknown'])
+poutcome = st.selectbox ("poutcome: ", ['N/A', 'failure', 'other', 'success'])
 
 #  9   job_non-qualified
 #  10  job_qualified
@@ -143,12 +143,9 @@ user_data.loc [:,cols] = scaler.transform (user_data.loc [:,cols])
 
 # Realizar la predicción con su probabilidad.
 prob = model.predict_proba (user_data)
+prediction = model.predict (user_data)
 
 # Mostrar la predicción y su probabilidad.
-st.write ('\nEl umbral de probabilidad se situa en 0.4.\n')
 st.write (f'Probabilidad: %5.3f' % (prob [0, 1]))
-if prob [0, 1] >= 0.4: 
-    st.write (f'Predicción: yes')
-else:
-    st.write (f'Predicción: no')
+st.write (f'Predicción: ', prediction [0])
 
