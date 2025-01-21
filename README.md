@@ -1,2 +1,2 @@
 # Projecte-Machine-Learning
-Solución de los ejercicios para el bootcamp sobre machine learning.
+Exercise solutions for the machine learning bootcamp.
